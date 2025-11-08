@@ -4,7 +4,7 @@
   "description": "DearFlip - Create realistic 3D FlipBook from PDF using jQuery.",
   "main": "index.js",
   "directories": {
-    "example": "examples"
+    "example": "assets"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

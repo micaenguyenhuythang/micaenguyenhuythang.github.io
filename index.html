@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Micae Nguyễn Huy Thăng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 50px;
+    }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .book-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    .book-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+    
+    .book-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .book-subtitle {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .books-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Micae Nguyễn Huy Thăng</h1>
+    <p class="subtitle">Các tuyển tập</p>
+    
+    <div class="books-grid">
+      <a href="bookview.html?book=intro.pdf" class="book-card">
+        <div class="book-icon">📖</div>
+        <div class="book-title">Introduction Book</div>
+        <div class="book-subtitle">Click to read</div>
+      </a>
+      
+      <a href="bookview.html?book=Kinh%20Thanh%201%20ebook.pdf" class="book-card">
+        <div class="book-icon">📖</div>
+        <div class="book-title">Kinh Thanh 1</div>
+        <div class="book-subtitle">Click to read</div>
+      </a>
+      
+      <!-- Add more books here as needed -->
+      <!-- 
+      <a href="bookview.html?book=another-book.pdf" class="book-card">
+        <div class="book-icon">📖</div>
+        <div class="book-title">Another Book</div>
+        <div class="book-subtitle">Click to read</div>
+      </a>
+      -->
+    </div>
+  </div>
+</body>
+</html>
+
