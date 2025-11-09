@@ -254,58 +254,80 @@
     
     .book-card {
       position: relative;
-      border-radius: 16px;
+      border-radius: 2px 8px 8px 2px;
       overflow: hidden;
       aspect-ratio: 3 / 4;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 
+        0 2px 4px rgba(0,0,0,0.1),
+        0 4px 8px rgba(0,0,0,0.08),
+        0 8px 16px rgba(0,0,0,0.06),
+        inset -8px 0 12px rgba(0,0,0,0.25),
+        inset 0 0 0 1px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      display: block;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      border: none;
     }
     
+    /* Book spine - left edge */
     .book-card::before {
       content: '';
       position: absolute;
-      bottom: 0;
       left: 0;
-      right: 0;
-      height: 60%;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+      top: 0;
+      bottom: 0;
+      width: 12px;
+      background: linear-gradient(to right, 
+        rgba(0,0,0,0.4) 0%, 
+        rgba(0,0,0,0.3) 30%,
+        rgba(0,0,0,0.2) 60%,
+        rgba(0,0,0,0.1) 90%,
+        transparent 100%);
+      border-radius: 2px 0 0 2px;
       pointer-events: none;
+      z-index: 1;
+    }
+    
+    /* Page edges - right side */
+    .book-card::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: 
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.1) 0px,
+          rgba(255,255,255,0.05) 1px,
+          rgba(255,255,255,0.1) 2px,
+          transparent 3px
+        ),
+        linear-gradient(to left,
+          rgba(255,255,255,0.4) 0%,
+          rgba(255,255,255,0.2) 30%,
+          transparent 100%
+        );
+      border-radius: 0 8px 8px 0;
+      pointer-events: none;
+      z-index: 1;
     }
     
     .book-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-    
-    .book-card-content {
-      position: relative;
-      z-index: 1;
-      padding: 30px 24px 24px;
-      color: white;
-    }
-    
-    .book-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 8px;
-      line-height: 1.2;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-    
-    .book-subtitle {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
-      font-weight: 500;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      transform: translateY(-10px) rotateY(-5deg) scale(1.02);
+      box-shadow: 
+        0 4px 8px rgba(0,0,0,0.12),
+        0 8px 16px rgba(0,0,0,0.1),
+        0 16px 32px rgba(0,0,0,0.08),
+        inset -10px 0 16px rgba(0,0,0,0.3),
+        inset 0 0 0 1px rgba(0,0,0,0.08);
     }
     
     /* Responsive Design */
@@ -343,14 +365,6 @@
       .books-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
-      }
-      
-      .book-title {
-        font-size: 1.5rem;
-      }
-      
-    .book-card-content {
-      padding: 24px 20px 20px;
       }
     }
     
@@ -405,47 +419,17 @@ Và ngày mai biết đâu con sẽ ngã...</div>
   <div class="books-section">
     <h2 class="books-section-title">Cùng tác giả</h2>
     <div class="books-grid">
-      <a href="bookview.html?book=Ngon%20Nen%20-%20Nguyen%20Huy%20Thang%20(2009)%20-%20ebook.pdf" class="book-card" style="background-image: url('assets/covers/Ngon Nen Cover.webp');">
-        <div class="book-card-content">
-          <div class="book-title">Ngọn Nến</div>
-          <div class="book-subtitle">2009</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Ngon%20Nen%20-%20Nguyen%20Huy%20Thang%20(2009)%20-%20ebook.pdf" class="book-card" style="background-image: url('assets/covers/Ngon Nen Cover.webp');"></a>
       
-      <a href="bookview.html?book=Noi%20Niem%20-%20Nguyen%20Huy%20Thang%20(2017).pdf" class="book-card" style="background-image: url('assets/covers/Noi Niem Cover.webp');">
-        <div class="book-card-content">
-          <div class="book-title">Nỗi Niềm</div>
-          <div class="book-subtitle">2017</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Noi%20Niem%20-%20Nguyen%20Huy%20Thang%20(2017).pdf" class="book-card" style="background-image: url('assets/covers/Noi Niem Cover.webp');"></a>
       
-      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%20-%20Nguyen%20Huy%20Thang%20(2018).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 1 (1).webp');">
-        <div class="book-card-content">
-          <div class="book-title">Tôi Đọc Kinh Thánh</div>
-          <div class="book-subtitle">2018</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%20-%20Nguyen%20Huy%20Thang%20(2018).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 1 (1).webp');"></a>
       
-      <a href="bookview.html?book=Toi%20Doc%20Kinh%20Thanh%202%20-%20Nguyen%20Huy%20Thang%20(2019).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 2.webp');">
-        <div class="book-card-content">
-          <div class="book-title">Tôi Đọc Kinh Thánh 2</div>
-          <div class="book-subtitle">2019</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Toi%20Doc%20Kinh%20Thanh%202%20-%20Nguyen%20Huy%20Thang%20(2019).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 2.webp');"></a>
       
-      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%203%20-%20Nguyen%20Huy%20Thang%20(2021).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 3 (1).webp');">
-        <div class="book-card-content">
-          <div class="book-title">Tôi Đọc Kinh Thánh 3</div>
-          <div class="book-subtitle">2021</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%203%20-%20Nguyen%20Huy%20Thang%20(2021).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 3 (1).webp');"></a>
       
-      <a href="bookview.html?book=Dep%20Nhu%20Hy%20Vong%20-%20Nguyen%20Huy%20Thang%20(2025).pdf" class="book-card" style="background-image: url('assets/covers/Dep Nhu Hy Vong Cover.webp');">
-        <div class="book-card-content">
-          <div class="book-title">Đẹp Như Hy Vọng</div>
-          <div class="book-subtitle">2025</div>
-        </div>
-      </a>
+      <a href="bookview.html?book=Dep%20Nhu%20Hy%20Vong%20-%20Nguyen%20Huy%20Thang%20(2025).pdf" class="book-card" style="background-image: url('assets/covers/Dep Nhu Hy Vong Cover.webp');"></a>
     </div>
   </div>
   
