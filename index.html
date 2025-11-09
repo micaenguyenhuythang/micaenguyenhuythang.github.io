@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="utf-8">
   <title>Micae Nguyễn Huy Thăng</title>
@@ -14,113 +14,423 @@
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #ffffff;
       min-height: 100vh;
-      padding: 40px 20px;
     }
     
-    .container {
+    /* Logo Section */
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #ffffff;
+      font-style: italic;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+      background: transparent;
+      padding: 20px;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Hero Section with Background Image */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 60vh;
+      background-image: url('assets/img/Nguyen Huy Thang.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 100%);
+      pointer-events: none;
+    }
+    
+    /* Music Section */
+    .music-section {
+      position: relative;
+      background: #ffffff;
+      padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
     
-    h1 {
-      color: white;
-      text-align: center;
-      font-size: 3rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    .music-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 40%, rgba(249, 250, 251, 0.8) 80%, rgba(249, 250, 251, 1) 100%);
+      pointer-events: none;
     }
     
-    .subtitle {
-      color: rgba(255, 255, 255, 0.9);
+    .music-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .music-image {
+      width: 200px;
+      height: auto;
+      flex-shrink: 0;
+    }
+    
+    .music-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
       text-align: center;
-      font-size: 1.2rem;
+    }
+    
+    .song-title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1f2937;
+      text-align: center;
+    }
+    
+    .song-title .title-part-1 {
+      color: #374151;
+    }
+    
+    .song-title .title-part-2 {
+      color: #6b7280;
+    }
+    
+    .lyrics {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #6b7280;
+      white-space: pre-line;
+      text-align: center;
+    }
+    
+    /* YouTube Video Section */
+    .video-section {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .video-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.8) 100%);
+      pointer-events: none;
+    }
+    
+    .video-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 0) 0%, rgba(249, 250, 251, 0.5) 50%, rgba(249, 250, 251, 1) 100%);
+      pointer-events: none;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Book Collection Section */
+    .books-section {
+      position: relative;
+      background: #f9fafb;
+      padding: 100px 20px 80px;
+    }
+    
+    .books-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 0) 0%, rgba(249, 250, 251, 0.6) 50%, rgba(249, 250, 251, 1) 100%);
+      pointer-events: none;
+    }
+    
+    .books-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 100%);
+      pointer-events: none;
+    }
+    
+    .books-section-title {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #8b5cf6;
+      font-style: italic;
+      font-family: 'Georgia', 'Times New Roman', serif;
       margin-bottom: 50px;
     }
     
     .books-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
-      margin-top: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .book-card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       text-decoration: none;
-      color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    
+    .book-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+      pointer-events: none;
     }
     
     .book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
     
-    .book-icon {
-      font-size: 4rem;
-      margin-bottom: 20px;
+    .book-card-content {
+      position: relative;
+      z-index: 1;
+      padding: 30px 24px 24px;
+      color: white;
     }
     
     .book-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     
     .book-subtitle {
-      color: #666;
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      font-weight: 500;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
     
+    /* Responsive Design */
     @media (max-width: 768px) {
-      h1 {
+      .logo {
+        font-size: 2rem;
+        padding: 15px;
+        top: 20px;
+      }
+      
+      .hero-section {
+        min-height: 40vh;
+      }
+      
+      .music-content {
+        gap: 30px;
+      }
+      
+      .music-image {
+        width: 150px;
+      }
+      
+      .song-title {
+        font-size: 2rem;
+      }
+      
+      .lyrics {
+        font-size: 1rem;
+      }
+      
+      .books-section-title {
         font-size: 2rem;
       }
       
       .books-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
       }
+      
+      .book-title {
+        font-size: 1.5rem;
+      }
+      
+    .book-card-content {
+      padding: 24px 20px 20px;
+      }
+    }
+    
+    /* Footer Section */
+    .footer {
+      position: relative;
+      background: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>📚 Micae Nguyễn Huy Thăng</h1>
-    <p class="subtitle">Các tuyển tập</p>
-    
-    <div class="books-grid">
-      <a href="bookview.html?book=intro.pdf" class="book-card">
-        <div class="book-icon">📖</div>
-        <div class="book-title">Introduction Book</div>
-        <div class="book-subtitle">Click to read</div>
-      </a>
-      
-      <a href="bookview.html?book=Kinh%20Thanh%201%20ebook.pdf" class="book-card">
-        <div class="book-icon">📖</div>
-        <div class="book-title">Kinh Thanh 1</div>
-        <div class="book-subtitle">Click to read</div>
-      </a>
-      
-      <!-- Add more books here as needed -->
-      <!-- 
-      <a href="bookview.html?book=another-book.pdf" class="book-card">
-        <div class="book-icon">📖</div>
-        <div class="book-title">Another Book</div>
-        <div class="book-subtitle">Click to read</div>
-      </a>
-      -->
+  <!-- Hero Section with Background Image -->
+  <div class="hero-section">
+    <!-- Logo -->
+    <div class="logo">Micae Nguyễn Huy Thăng</div>
+  </div>
+  
+  <!-- Music Section -->
+  <div class="music-section">
+    <div class="music-content">
+      <img src="assets/img/ngua chung trong tu vien.svg" alt="Ngựa chứng trong tu viện" class="music-image">
+      <div class="music-text">
+        <h2 class="song-title">
+          <span class="title-part-1">Ngựa chứng trong tu viện</span><br>
+        </h2>
+        <div class="lyrics">Chúa Chúa ơi, con bắt đèn bắt đền Chúa đó
+Ai bảo chúa chọn con mà không giết chết tim con
+Để hôm qua con buồn phiền
+Để hôm nay con chiến đấu
+Và ngày mai biết đâu con sẽ ngã...</div>
+      </div>
     </div>
   </div>
+  
+  <!-- YouTube Video Section -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/hym5K2Gcf1o" 
+        title="Ngựa chứng trong tu viện"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  
+  <!-- Book Collection Section -->
+  <div class="books-section">
+    <h2 class="books-section-title">Cùng tác giả</h2>
+    <div class="books-grid">
+      <a href="bookview.html?book=Ngon%20Nen%20-%20Nguyen%20Huy%20Thang%20(2009)%20-%20ebook.pdf" class="book-card" style="background-image: url('assets/covers/Ngon Nen Cover.webp');">
+        <div class="book-card-content">
+          <div class="book-title">Ngọn Nến</div>
+          <div class="book-subtitle">2009</div>
+        </div>
+      </a>
+      
+      <a href="bookview.html?book=Noi%20Niem%20-%20Nguyen%20Huy%20Thang%20(2017).pdf" class="book-card" style="background-image: url('assets/covers/Noi Niem Cover.webp');">
+        <div class="book-card-content">
+          <div class="book-title">Nỗi Niềm</div>
+          <div class="book-subtitle">2017</div>
+        </div>
+      </a>
+      
+      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%20-%20Nguyen%20Huy%20Thang%20(2018).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 1 (1).webp');">
+        <div class="book-card-content">
+          <div class="book-title">Tôi Đọc Kinh Thánh</div>
+          <div class="book-subtitle">2018</div>
+        </div>
+      </a>
+      
+      <a href="bookview.html?book=Toi%20Doc%20Kinh%20Thanh%202%20-%20Nguyen%20Huy%20Thang%20(2019).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 2.webp');">
+        <div class="book-card-content">
+          <div class="book-title">Tôi Đọc Kinh Thánh 2</div>
+          <div class="book-subtitle">2019</div>
+        </div>
+      </a>
+      
+      <a href="bookview.html?book=Toi%20doc%20Kinh%20Thanh%203%20-%20Nguyen%20Huy%20Thang%20(2021).pdf" class="book-card" style="background-image: url('assets/covers/Toi Doc Kinh Thanh 3 (1).webp');">
+        <div class="book-card-content">
+          <div class="book-title">Tôi Đọc Kinh Thánh 3</div>
+          <div class="book-subtitle">2021</div>
+        </div>
+      </a>
+      
+      <a href="bookview.html?book=Dep%20Nhu%20Hy%20Vong%20-%20Nguyen%20Huy%20Thang%20(2025).pdf" class="book-card" style="background-image: url('assets/covers/Dep Nhu Hy Vong Cover.webp');">
+        <div class="book-card-content">
+          <div class="book-title">Đẹp Như Hy Vọng</div>
+          <div class="book-subtitle">2025</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Micae Nguyễn Huy Thăng. Vui lòng ghi rõ nguồn khi trích dẫn.
+  </footer>
 </body>
 </html>
-
