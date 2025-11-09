@@ -1,167 +1,91 @@
 # Deploy to GitHub Pages
 
-This guide will help you deploy your DearFlip flipbook to GitHub Pages for free hosting.
+Hướng dẫn triển khai website lên GitHub Pages.
 
-## Prerequisites
+## Yêu cầu
 
-- A GitHub account
-- Git installed on your computer
+- Tài khoản GitHub
+- Git đã được cài đặt trên máy tính
 
-## Deployment Steps
+## Các bước triển khai
 
 ### Option 1: User/Organization Pages (username.github.io)
 
-1. **Create a new repository** on GitHub:
-   - Repository name: `yourusername.github.io` (replace `yourusername` with your GitHub username)
-   - Make it **public**
-   - Initialize with a README (optional)
+1. **Tạo repository mới** trên GitHub:
+   - Tên repository: `yourusername.github.io` (thay `yourusername` bằng tên GitHub của bạn)
+   - Đặt là **public**
+   - Khởi tạo với README (tùy chọn)
 
-2. **Clone and setup**:
+2. **Clone và setup**:
    ```bash
    git clone https://github.com/yourusername/yourusername.github.io.git
    cd yourusername.github.io
    ```
 
-3. **Copy your files**:
+3. **Copy các file**:
    ```bash
-   # Copy all files from dearflip-js-flipbook to the repository
-   cp -r /path/to/dearflip-js-flipbook/* .
-   cp -r /path/to/dearflip-js-flipbook/.github .
+   # Copy tất cả các file vào repository
+   cp -r /path/to/project/* .
+   cp -r /path/to/project/.github .
    ```
 
-4. **Commit and push**:
+4. **Commit và push**:
    ```bash
    git add .
-   git commit -m "Initial commit: DearFlip flipbook"
+   git commit -m "Initial commit"
    git push -u origin main
    ```
 
-5. **Enable GitHub Pages**:
-   - Go to repository Settings → Pages
-   - Under "Source", select **"GitHub Actions"**
-   - The workflow will automatically deploy your site
+5. **Bật GitHub Pages**:
+   - Vào repository Settings → Pages
+   - Trong phần "Source", chọn **"GitHub Actions"**
+   - Workflow sẽ tự động triển khai website
 
-6. **Access your site**:
-   - Your flipbook will be available at: `https://yourusername.github.io`
-   - It may take a few minutes for the first deployment
+6. **Truy cập website**:
+   - Website sẽ có sẵn tại: `https://yourusername.github.io`
+   - Có thể mất vài phút cho lần triển khai đầu tiên
 
-### Option 2: Project Pages (repository.github.io/project-name)
+## Cấu trúc thư mục
 
-1. **Create a new repository** on GitHub:
-   - Repository name: `dearflip-flipbook` (or any name you prefer)
-   - Make it **public**
-   - Initialize with a README (optional)
-
-2. **Clone and setup**:
-   ```bash
-   git clone https://github.com/yourusername/dearflip-flipbook.git
-   cd dearflip-flipbook
-   ```
-
-3. **Copy your files**:
-   ```bash
-   # Copy all files from dearflip-js-flipbook to the repository
-   cp -r /path/to/dearflip-js-flipbook/* .
-   cp -r /path/to/dearflip-js-flipbook/.github .
-   ```
-
-4. **Commit and push**:
-   ```bash
-   git add .
-   git commit -m "Initial commit: DearFlip flipbook"
-   git push -u origin main
-   ```
-
-5. **Enable GitHub Pages**:
-   - Go to repository Settings → Pages
-   - Under "Source", select **"GitHub Actions"**
-   - The workflow will automatically deploy your site
-
-6. **Access your site**:
-   - Your flipbook will be available at: `https://yourusername.github.io/dearflip-flipbook`
-   - It may take a few minutes for the first deployment
-
-## File Structure
-
-Your repository should have this structure:
+Repository nên có cấu trúc như sau:
 
 ```
 .
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions workflow
-├── dflip/                      # DearFlip library files
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   └── ...
-├── examples/
-│   └── example-assets/
-│       └── books/
-│           └── intro.pdf       # Your PDF file
-├── index.html                  # Main entry point
-├── standalone.html             # Alternative entry point
-├── .gitignore
+├── assets/                    # Tài nguyên (hình ảnh, sách, v.v.)
+│   ├── books/
+│   ├── covers/
+│   └── img/
+├── dflip/                     # Thư viện flipbook
+├── index.html                 # Trang chủ
+├── bookview.html              # Trang đọc sách
 └── README.md
 ```
 
-## Customizing Your PDF
+## Cập nhật website
 
-To use your own PDF file:
-
-1. Place your PDF in `examples/example-assets/books/` (or any location)
-2. Update `index.html` and change the `source` attribute:
-   ```html
-   <div class="_df_book" 
-        source="examples/example-assets/books/your-pdf.pdf"
-        ...>
-   ```
-
-## Troubleshooting
-
-### Site not loading
-- Wait 5-10 minutes after first push for GitHub Pages to build
-- Check the Actions tab in your repository for build errors
-- Verify all file paths are correct
-
-### PDF not loading
-- Ensure PDF file is committed to the repository
-- Check browser console (F12) for errors
-- Verify the `source` path in `index.html` matches your file location
-
-### Assets not loading
-- Make sure the `dflip` folder is in the repository root
-- Check that all files in `dflip/` are committed
-- Verify `dFlipLocation` is set correctly in the console
-
-## Updating Your Site
-
-After making changes:
+Sau khi thay đổi:
 
 ```bash
 git add .
-git commit -m "Update flipbook"
+git commit -m "Update website"
 git push
 ```
 
-GitHub Actions will automatically rebuild and deploy your site.
+GitHub Actions sẽ tự động build và triển khai website.
 
-## Custom Domain (Optional)
+## Tên miền tùy chỉnh (Tùy chọn)
 
-To use a custom domain:
+Để sử dụng tên miền tùy chỉnh:
 
-1. Add a `CNAME` file to your repository root with your domain:
+1. Thêm file `CNAME` vào thư mục gốc của repository với tên miền của bạn:
    ```
    yourdomain.com
    ```
 
-2. Configure DNS settings with your domain provider:
-   - Add a CNAME record pointing to `yourusername.github.io`
+2. Cấu hình DNS với nhà cung cấp tên miền:
+   - Thêm bản ghi CNAME trỏ đến `yourusername.github.io`
 
-3. Update repository Settings → Pages → Custom domain
-
-## License
-
-Remember: DearFlip Lite is for non-commercial use only. See LICENSE file for details.
-
-
+3. Cập nhật repository Settings → Pages → Custom domain
