@@ -44,7 +44,7 @@
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #ffffff;
+      background: #f9fafb;
       min-height: 100vh;
     }
     
@@ -89,28 +89,21 @@
       left: 0;
       right: 0;
       height: 120px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(249, 250, 251, 0.3) 30%, rgba(249, 250, 251, 0.7) 70%, rgba(249, 250, 251, 1) 100%);
       pointer-events: none;
     }
     
     /* Music Section */
     .music-section {
       position: relative;
-      background: #ffffff;
+      background: transparent;
       padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
     
     .music-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 40%, rgba(249, 250, 251, 0.8) 80%, rgba(249, 250, 251, 1) 100%);
-      pointer-events: none;
+      display: none;
     }
     
     .music-content {
@@ -170,25 +163,11 @@
     }
     
     .video-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.8) 100%);
-      pointer-events: none;
+      display: none;
     }
     
     .video-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100px;
-      background: linear-gradient(to bottom, rgba(249, 250, 251, 0) 0%, rgba(249, 250, 251, 0.5) 50%, rgba(249, 250, 251, 1) 100%);
-      pointer-events: none;
+      display: none;
     }
     
     .video-wrapper {
@@ -235,7 +214,7 @@
       left: 0;
       right: 0;
       height: 80px;
-      background: linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 100%);
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0.9) 50%, rgba(249, 250, 251, 1) 100%);
       pointer-events: none;
     }
     
@@ -380,7 +359,7 @@
     /* Footer Section */
     .footer {
       position: relative;
-      background: #ffffff;
+      background: transparent;
       padding: 40px 20px;
       text-align: center;
       color: #6b7280;
